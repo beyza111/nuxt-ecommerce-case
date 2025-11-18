@@ -20,6 +20,8 @@
     
     <CategorySection />
 
+    <AppFooter />
+
   </div>
 </template>
 
@@ -28,6 +30,7 @@ const { data, pending } = await useFetch('https://dummyjson.com/products?limit=8
 </script>
 
 <style>
+
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
