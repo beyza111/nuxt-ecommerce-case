@@ -2,13 +2,11 @@
   <div>
     <AppHeader />
     
+    <HeroSection />
+    
     <div class="container">
-      <h1>Featured Products</h1>
-      
-      <div v-if="pending" class="loading">
-        Loading products...
-      </div>
-
+      <h1 class="section-title">Featured Products</h1>
+      <div v-if="pending" class="loading">Loading...</div>
       <div v-else class="product-grid">
         <ProductCard 
           v-for="item in data?.products" 
@@ -17,37 +15,38 @@
         />
       </div>
     </div>
+
+    <PromoBanner />
+    
+    <CategorySection />
+
   </div>
 </template>
 
 <script setup>
-const { data, pending } = await useFetch('https://dummyjson.com/products')
+const { data, pending } = await useFetch('https://dummyjson.com/products?limit=8') 
 </script>
 
 <style>
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff; 
+  background-color: #fff;
 }
-
 .container {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
-
-.loading {
+.section-title {
   text-align: center;
-  font-size: 1.5rem;
-  margin-top: 50px;
-  color: #666;
+  color: #4aa1a8;
+  margin: 40px 0;
 }
-
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-  gap: 40px; 
+  gap: 40px;
 }
 </style>
