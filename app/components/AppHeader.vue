@@ -33,7 +33,7 @@
           
           <NuxtLink to="/checkout" class="cart-icon">
             🛒
-            <span class="badge">2</span>
+            <span class="badge">{{ cart.length }}</span>
           </NuxtLink>
           
         </div>
@@ -57,6 +57,10 @@
 
   </header>
 </template>
+
+<script setup>
+const cart = useCart()
+</script>
 
 <style scoped>
 .site-header {
@@ -155,7 +159,6 @@
   font-size: 0.9rem;
   color: #555;
 }
-
 
 .cart-icon {
   position: relative;

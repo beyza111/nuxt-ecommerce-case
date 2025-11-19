@@ -8,13 +8,24 @@
       <div class="price">${{ product.price }}</div>
       <h3 class="card-title">{{ product.title }}</h3>
       <p class="card-brand">{{ product.brand || product.category }}</p>
-      <button class="add-btn">Add to Cart</button>
+      <button @click="addToCart" class="add-btn">Add to Cart</button>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps(['product']);
+const props = defineProps(['product']);
+const cart = useCart();
+
+const addToCart = () => {
+  const existingItem = cart.value.find(item => item.id === props.product.id);
+
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.value.push({ ...props.product, quantity: 1 });
+  }
+};
 </script>
 
 <style scoped>
@@ -82,19 +93,21 @@ defineProps(['product']);
 
 .add-btn {
   margin-top: 10px;
-  background-color: #333; 
+  background-color: #008080;
   color: white;
-  border: none;
+  border: 1px solid #008080;
   padding: 10px;
   width: 100%;
   font-size: 0.85rem;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  font-weight: 700;
 }
 
 .add-btn:hover {
-  background-color: #000; 
+  background-color: #005555;
+  border-color: #005555;
 }
 </style>

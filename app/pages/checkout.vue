@@ -81,31 +81,27 @@
             </div>
           </section>
           
-          <button class="pay-btn">PAY NOW ($84.90)</button>
+          <button class="pay-btn">PAY NOW (${{ total.toFixed(2) }})</button>
 
         </div>
 
         <div class="checkout-summary">
           <h3>Shopping Cart Summary</h3>
           
-          <div class="summary-item">
-            <img src="https://media.sephora.eu/content/dam/digital/pim/published/S/SISLEY/743628/357024-media_swatch-1.jpeg" alt="Hair Mask" />
-            <div class="item-info">
-              <h4>The Intense Nutrition Hair Mask</h4>
-              <div class="price-row">
-                <span>$44.95</span>
-                <span class="qty">x 1</span>
-              </div>
-            </div>
+          <div v-if="cart.length === 0" class="empty-cart">
+            <p>Your cart is currently empty.</p>
+            <NuxtLink to="/" class="back-link">Go Shopping</NuxtLink>
           </div>
 
-          <div class="summary-item">
-            <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=200&q=80" alt="Shampoo" />
-            <div class="item-info">
-              <h4>Strengthening Shampoo</h4>
-              <div class="price-row">
-                <span>$29.45</span>
-                <span class="qty">x 1</span>
+          <div v-else>
+            <div v-for="(item, index) in cart" :key="index" class="summary-item">
+              <img :src="item.thumbnail" :alt="item.title" />
+              <div class="item-info">
+                <h4>{{ item.title }}</h4>
+                <div class="price-row">
+                  <span>${{ item.price }}</span>
+                  <span class="qty">x {{ item.quantity }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -117,15 +113,15 @@
           <div class="totals">
             <div class="row">
               <span>Subtotal</span>
-              <span>$74.40</span>
+              <span>${{ subtotal.toFixed(2) }}</span>
             </div>
             <div class="row">
               <span>Shipping</span>
-              <span>$10.50</span>
+              <span>${{ shippingCost }}</span>
             </div>
             <div class="row total">
               <span>Total</span>
-              <span>$84.90</span>
+              <span>${{ total.toFixed(2) }}</span>
             </div>
           </div>
 
@@ -135,6 +131,20 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const cart = useCart()
+const shippingCost = 10.50
+
+const subtotal = computed(() => {
+  return cart.value.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+})
+
+const total = computed(() => {
+  if (cart.value.length === 0) return 0;
+  return subtotal.value + shippingCost
+})
+</script>
 
 <style scoped>
 .checkout-page {
@@ -271,19 +281,30 @@ textarea {
   margin-top: 10px;
 }
 
+.empty-cart {
+  text-align: center;
+  padding: 20px 0;
+  color: #777;
+}
+
+.back-link {
+  color: #008080;
+  text-decoration: none;
+  font-weight: bold;
+}
 
 @media (max-width: 768px) {
   .checkout-grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
 
   .form-row {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 15px;
   }
 
   .half {
-    width: 100%; 
+    width: 100%;
   }
 }
 </style>
