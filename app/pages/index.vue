@@ -24,12 +24,10 @@
 </template>
 
 <script setup>
-// Veri çekme işlemi artık burada yapılacak
 const { data, pending } = await useFetch('https://dummyjson.com/products?limit=8') 
 </script>
 
 <style>
-/* Buraya özel stil gerekmiyor, globalden alıyor */
 .section-title {
   text-align: center;
   color: #4aa1a8;

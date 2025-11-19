@@ -86,7 +86,7 @@
         </div>
 
         <div class="checkout-summary">
-          <h3>Shopping cart summary</h3>
+          <h3>Shopping Cart Summary</h3>
           
           <div class="summary-item">
             <img src="https://media.sephora.eu/content/dam/digital/pim/published/S/SISLEY/743628/357024-media_swatch-1.jpeg" alt="Hair Mask" />

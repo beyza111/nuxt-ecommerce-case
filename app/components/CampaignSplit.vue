@@ -15,7 +15,7 @@
             <p class="tiny-text">*Valid until 18 Nov 2025. Limited to 250 stocks.</p>
           </div>
           <div class="img-part">
-            <img src="https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?auto=format&fit=crop&w=300&q=80" alt="Loreal Products" />
+            <img src="https://static01.galaxus.com/productimages/3/8/5/8/2/1/7/0/9/9/2/9/8/0/4/2/5/4/9/93619c5a-409e-4b97-af50-99d7e894644e_cropped.jpg_720.jpeg" alt="Loreal Products" />
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
             <button class="action-btn outline">DISCOVER</button>
           </div>
           <div class="img-part">
-            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=300&q=80" alt="Perfume Sets" />
+            <img src="https://rukminim2.flixcart.com/image/480/640/xif0q/perfume/k/m/m/80-luxury-perfume-gift-set-for-women-eau-de-parfum-body-cupid-original-imagmerznspcvf3y.jpeg?q=90" alt="Perfume Sets" />
           </div>
         </div>
       </div>

@@ -107,32 +107,24 @@
   .hero-wrapper {
     height: auto;
     flex-direction: column;
-    display: block;
-    padding-bottom: 40px;
   }
   
   .hero-image-container {
     position: relative;
-    height: 350px;
-    width: 100%;
+    height: 300px;
   }
   
   .content-layer {
-    display: block;
-    padding: 0 20px;
-    margin-top: -60px; 
+    justify-content: center;
+    padding: 20px;
+    background-color: #fceef2;
   }
   
   .white-card {
     width: 100%;
     max-width: 100%;
-    border-radius: 12px;
+    box-shadow: none;
     padding: 30px 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-  }
-
-  .brand-title {
-    font-size: 1.5rem;
   }
 }
 </style>
