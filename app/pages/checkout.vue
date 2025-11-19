@@ -97,7 +97,10 @@
             <div v-for="(item, index) in cart" :key="index" class="summary-item">
               <img :src="item.thumbnail" :alt="item.title" />
               <div class="item-info">
-                <h4>{{ item.title }}</h4>
+                <div class="item-header">
+                  <h4>{{ item.title }}</h4>
+                  <button @click="removeFromCart(index)" class="remove-btn">✕</button>
+                </div>
                 <div class="price-row">
                   <span>${{ item.price }}</span>
                   <span class="qty">x {{ item.quantity }}</span>
@@ -135,6 +138,10 @@
 <script setup>
 const cart = useCart()
 const shippingCost = 10.50
+
+const removeFromCart = (index) => {
+  cart.value.splice(index, 1)
+}
 
 const subtotal = computed(() => {
   return cart.value.reduce((sum, item) => sum + (item.price * item.quantity), 0)
@@ -246,10 +253,36 @@ textarea {
   border-radius: 4px;
 }
 
+.item-info {
+  flex: 1;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
 .item-info h4 {
   font-size: 0.9rem;
-  margin: 0 0 5px;
+  margin: 0;
   color: #333;
+  padding-right: 10px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+}
+
+.remove-btn:hover {
+  color: #ea4c89;
 }
 
 .price-row {
