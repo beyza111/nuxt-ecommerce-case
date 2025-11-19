@@ -2,7 +2,7 @@
 
 This project is a **Front-end Trainee Test Case** developed to demonstrate modern front-end development skills. It is a fully responsive e-commerce landing page built with **Nuxt 3 (Vue.js)**, utilizing a mobile-first approach and modern CSS techniques.
 
-🔗 **Live Demo:** [https://nuxt-ecommerce-landing-pagee.vercel.app](https://nuxt-ecommerce-landing-pagee.vercel.app)
+🔗 **Live Demo:** [https://nuxt-ecommerce-case.vercel.app/](https://nuxt-ecommerce-case.vercel.app/)
 
 ---
 
@@ -15,7 +15,7 @@ This project is a **Front-end Trainee Test Case** developed to demonstrate moder
 - **Component-Based Architecture:** Clean and reusable components (Hero, ProductCard, Footer, etc.).
 - **Modern Styling:** Used CSS Grid and Flexbox for layout, with glassmorphism and hover effects.
 
-### Bonus Features
+### ⭐️ Bonus Features (Completed)
 - **Checkout Page:** A dedicated route for the checkout process.
 - **State Management (Cart Logic):**
   - Global cart state using Nuxt Composables (`useState`).
