@@ -155,12 +155,6 @@
   gap: 40px;
 }
 
-@media (max-width: 768px) {
-  .checkout-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .section-header {
   font-size: 1.2rem;
   margin-bottom: 20px;
@@ -275,5 +269,21 @@ textarea {
   border-top: 1px solid #ddd;
   padding-top: 15px;
   margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .checkout-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .form-row {
+    flex-direction: column; 
+    gap: 15px;
+  }
+
+  .half {
+    width: 100%; 
+  }
 }
 </style>
